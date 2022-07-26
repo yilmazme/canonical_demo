@@ -5,26 +5,29 @@ import "./Posts.scss";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
+  const getPosts = async () => {
+    const res = await fetch("https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts.json");
+    const data = await res.json();
+
+    return data;
+  };
   useEffect(() => {
-    fetch("https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts.json")
-      .then((res) => res.json())
+    getPosts()
       .then((data) => {
         setPosts(data);
         console.log(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Error: ", err));
 
     return () => {};
   }, []);
 
   return (
-    <div className="main_container">
-      <div className="row">
-        {posts &&
-          posts.map((post) => {
-            return <EachPost key={post.id} post={post} />;
-          })}
-      </div>
+    <div className="row u-no-padding ">
+      {posts &&
+        posts.map((post) => {
+          return <EachPost key={post.id} post={post} />;
+        })}
     </div>
   );
 };
