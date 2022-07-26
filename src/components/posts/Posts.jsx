@@ -15,7 +15,6 @@ const Posts = () => {
     getPosts()
       .then((data) => {
         setPosts(data);
-        console.log(data);
       })
       .catch((err) => console.log("Error: ", err));
 
@@ -23,7 +22,7 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className="row u-no-padding ">
+    <div className="row u-no-padding">
       {posts &&
         posts.map((post) => {
           return <EachPost key={post.id} post={post} />;
