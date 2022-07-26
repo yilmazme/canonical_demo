@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+.col-4{
+    .p-card{
+        border-top: 3px solid #7c355d;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 1px 0px, rgba(0, 0, 0, 0.15) 0px 2px 2px -1px, rgba(0, 0, 0, 0.2) 0px 0px 3px 0px;
+        .header{
+            height: 7rem;  
+            a{
+        
+               font-size: 1.25rem;
+               font-family: "Ubuntu", -apple-system, "Segoe UI", "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;;
+           }
+        }
+    }
+}
